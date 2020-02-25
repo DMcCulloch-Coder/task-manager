@@ -5,6 +5,7 @@ import DashboardPage from "../views/DashboardPage";
 import AddTaskPage from "../views/AddTaskPage";
 import ProfilePage from "../views/ProfilePage";
 import NotFoundPage from "../views/NotFoundPage";
+import Footer from "../components/Footer";
 
 const AppRoutes = () => (
     <Router>
@@ -15,6 +16,7 @@ const AppRoutes = () => (
             <Route path="/profile" component={ProfilePage} exact={true} />
             <Route component={NotFoundPage} />
         </Switch>
+        <Footer />
     </Router>
 )
 
