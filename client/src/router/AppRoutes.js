@@ -1,0 +1,21 @@
+import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Header from "../components/Header";
+import DashboardPage from "../views/DashboardPage";
+import AddTaskPage from "../views/AddTaskPage";
+import ProfilePage from "../views/ProfilePage";
+import NotFoundPage from "../views/NotFoundPage";
+
+const AppRoutes = () => (
+    <Router>
+        <Header />
+        <Switch>
+            <Route path="/" component={DashboardPage} exact={true} />
+            <Route path="/create" component={AddTaskPage} exact={true} />
+            <Route path="/profile" component={ProfilePage} exact={true} />
+            <Route component={NotFoundPage} />
+        </Switch>
+    </Router>
+)
+
+export default AppRoutes;
