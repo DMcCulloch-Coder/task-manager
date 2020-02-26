@@ -8,7 +8,7 @@ module.exports = (env) => {
         entry: "./client/src/app.js",
         mode: 'development',
         output: {
-            path: path.join(__dirname, 'client/public'),
+            path: path.join(__dirname, 'client/public/build'),
             filename: 'bundle.js'
         },
         module: {
@@ -43,7 +43,8 @@ module.exports = (env) => {
         devtool: isProduction ? 'source-map' : 'eval-source-map',
         devServer: {
             contentBase: path.join(__dirname, 'client/public'),
-            historyApiFallback: true
+            historyApiFallback: true,
+            publicPath: '/build/'
         }
     }
 
