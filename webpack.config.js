@@ -20,8 +20,18 @@ module.exports = (env) => {
                 }, {
                     use: [
                         MiniCssExtractPlugin.loader,
-                        'css-loader',
-                        'sass-loader'
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                sourceMap: true
+                            }
+                        },
+                        {
+                            loader: 'sass-loader',
+                            options: {
+                                sourceMap: true
+                            }
+                        }
                     ],
                     test: /\.s?css$/
                 }
@@ -30,7 +40,7 @@ module.exports = (env) => {
         plugins: [
             new MiniCssExtractPlugin("style.css")
         ],
-        devtool: isProduction ? 'source-map' : 'cheap-module-eval-source-map',
+        devtool: isProduction ? 'source-map' : 'eval-source-map',
         devServer: {
             contentBase: path.join(__dirname, 'client/public'),
             historyApiFallback: true
