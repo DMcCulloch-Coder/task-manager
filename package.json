@@ -8,7 +8,8 @@
         "start": "node server.js",
         "build:dev": "webpack",
         "build:prod": "webpack -p --env production",
-        "server": "live-server ./client/public"
+        "server": "live-server ./client/public",
+        "heroku-postbuild": "npm run build:prod"
     },
     "keywords": [],
     "author": "",

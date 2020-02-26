@@ -1,1 +1,9 @@
 node_modules
+
+# Build Files
+
+client/public/bundle.js
+client/public/bundle.js.map
+
+client/public/main.css
+client/public/main.css.map
