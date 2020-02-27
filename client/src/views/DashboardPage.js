@@ -1,8 +1,11 @@
 import React from 'react';
+import Tasks from '../components/Tasks'
 
 const DashboardPage = () => (
-    <h1>Dashboard</h1>
+    <Tasks />
 
 )
+
+    
 
 export default DashboardPage;
