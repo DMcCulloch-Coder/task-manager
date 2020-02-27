@@ -1,7 +1,8 @@
 import React from 'react';
+import TaskForm from '../components/TaskForm';
 
 const AddTaskPage = () => (
-    <h1>Page to Add Task</h1>
+    <TaskForm />
 
 )
 
