@@ -9,7 +9,8 @@
         "build:dev": "webpack",
         "build:prod": "webpack -p --env production",
         "server": "nodemon server.js",
-        "heroku-postbuild": "npm run build:prod"
+        "heroku-postbuild": "npm run build:prod",
+        "connect:DB": "C:/Users/DMCCU/code/MongoDB/bin/mongod.exe --dbpath=C:/Users/DMCCU/code/MongoDB-data"
     },
     "keywords": [],
     "author": "",

@@ -15,8 +15,8 @@ const userSchema = new mongoose.Schema({
         trim: true,
         minlength: 7,
         validate(value) {
-            if(value.toLowerCase() === value || value.toUpperCase() === value) {
-                throw new Error ('Password must contain 1 lower and 1 upper case letter')
+            if (value.toLowerCase() === value || value.toUpperCase() === value) {
+                throw new Error('Password must contain 1 lower and 1 upper case letter')
             }
         }
     },
@@ -27,11 +27,21 @@ const userSchema = new mongoose.Schema({
         trim: true,
         lowercase: true,
         validate(value) {
-            if(!validator.isEmail(value)) {
-                throw new Error ('Email must be valid')
+            if (!validator.isEmail(value)) {
+                throw new Error('Email must be valid')
             }
         }
     }
+});
+
+userSchema.pre('save', async function (next) {
+    console.log('working middleware')
+
+    if (this.isModified('password')) {
+        this.password = await bcrypt.hash(this.password, 8)
+    }
+
+    next();
 })
 
 const User = mongoose.model('User', userSchema);
