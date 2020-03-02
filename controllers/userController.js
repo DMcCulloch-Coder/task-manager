@@ -20,6 +20,15 @@ module.exports = {
         }
     },
 
+    login: async (req, res) => {
+        try {
+            const user = await User.findByCredentials(req.body.email, req.body.password)
+            res.send(user)
+        } catch (e) {
+            res.status(400).send()
+        }
+    },
+
     findById: async (req, res) => {
         try {
             const user = await User.findById(req.params.id)
