@@ -3,7 +3,7 @@ const { User } = require('../models');
 module.exports = {
     getAll: async (req, res) => {
         try {
-            const users = User.find({})
+            const users = await User.find({})
             res.status(201).send(users)
         } catch (e) {
             res.status(400).send(e)
