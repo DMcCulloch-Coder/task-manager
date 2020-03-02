@@ -1,6 +1,15 @@
 const { User } = require('../models');
 
 module.exports = {
+    getAll: async (req, res) => {
+        try {
+            const users = User.find({})
+            res.status(201).send(users)
+        } catch (e) {
+            res.status(400).send(e)
+        }
+    },
+
     create: async (req, res) => {
         const user = new User(req.body);
 
@@ -26,10 +35,6 @@ module.exports = {
             res.status(500).send()
         }
 
-    },
-
-    login: async (req, res) => {
-        console.log('login')
     },
 
     update: async (req, res) => {
@@ -58,6 +63,22 @@ module.exports = {
             res.status(400).send(e)
         }
 
+    },
+
+    delete: async (req, res) => {
+        try {
+            const user = await User.findByIdAndDelete(req.params.id)
+
+            if (!user) {
+                return res.status(404).send()
+            }
+
+            res.send(user)
+
+        } catch (e) {
+            res.status(500).send()
+
+        }
     }
 
 }
