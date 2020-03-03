@@ -23,7 +23,7 @@ module.exports = {
     findById: async (req, res) => {
         try {
             const task = await Task.findById(req.params.id)
-            if(!task) {
+            if (!task) {
                 return res.status(404).send()
             }
             res.send({ task })
@@ -36,9 +36,9 @@ module.exports = {
         const updates = Object.keys(req.body)
         const allowedUpdates = ['title', 'status']
         const isValidOperation = updates.every(update => allowedUpdates.includes(update))
-    
+
         if (!isValidOperation) {
-            return res.status(400).send({ 'error': 'Invalid update'})
+            return res.status(400).send({ 'error': 'Invalid update' })
         }
 
         try {
@@ -46,14 +46,15 @@ module.exports = {
             updates.forEach(update => task[update] = req.body[update])
             await task.save()
 
-            if(!task) {
+            if (!task) {
                 return res.status(404).send({ "error": "Invalid Task" })
             }
+
             res.send(task)
         } catch (e) {
             res.status(400).send()
         }
-    
+
     },
 
     delete: async (req, res) => {
