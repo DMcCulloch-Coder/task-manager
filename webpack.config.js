@@ -40,7 +40,7 @@ module.exports = (env) => {
         plugins: [
             new MiniCssExtractPlugin("style.css")
         ],
-        devtool: isProduction ? 'source-map' : 'eval-source-map',
+        devtool: isProduction ? 'source-map' : 'eval-cheap-source-map',
         devServer: {
             contentBase: path.join(__dirname, 'client/public'),
             historyApiFallback: true,
