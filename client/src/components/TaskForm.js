@@ -1,5 +1,4 @@
 import React from 'react';
-import DatePicker from 'react-date-picker';
 
 const formSubmit = (e) => {
     e.preventDefault();
@@ -9,8 +8,8 @@ const formSubmit = (e) => {
         status: $('#status').val()
     };
 
-    $('#title').empty();
-    $('#status').empty();
+    $('#title').val('');
+    $('#status').val('');
 
     $.ajax({
         url: `/api/task`,
@@ -35,5 +34,6 @@ const TaskForm = () => (
         </button>
     </form>
 );
+
 
 export default TaskForm;
