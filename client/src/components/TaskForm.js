@@ -5,8 +5,11 @@ const formSubmit = (e) => {
 
     let data = {
         title: $('#title').val(),
-        stauts: $('#status').val()
-    }
+        status: $('#status').val()
+    };
+
+    $('#title').val('');
+    $('#status').val('');
 
     $.ajax({
         url: `/api/task`,
@@ -14,8 +17,8 @@ const formSubmit = (e) => {
         data
     }).then((result) => {
         console.log(result)
-    })
-}
+    });
+};
 
 const TaskForm = () => (
     <form action="submit">
@@ -31,5 +34,6 @@ const TaskForm = () => (
         </button>
     </form>
 );
+
 
 export default TaskForm;
