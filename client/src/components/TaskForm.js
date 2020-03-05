@@ -3,10 +3,14 @@ import React from 'react';
 const formSubmit = (e) => {
     e.preventDefault();
 
-    let data = {
+
+
+    let data = $('#status').val() ? {
         title: $('#title').val(),
         status: $('#status').val()
-    };
+    } : {
+            title: $('#title').val()
+        };
 
     $('#title').val('');
     $('#status').val('');

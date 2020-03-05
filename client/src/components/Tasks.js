@@ -34,7 +34,7 @@ const Tasks = () => {
     return (
         <div className='tasks'>
             <h2 className='tasks__title'>Tasks</h2>
-            {tasksState.length && tasksState.map(thisTask => <Task
+            {tasksState.map(thisTask => <Task
                 key={thisTask.id}
                 id={thisTask.id}
                 title={thisTask.title}
