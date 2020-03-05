@@ -1,4 +1,5 @@
 import React from 'react';
+import API from '../utils/API';
 
 const Task = (props) => (
     <div className="task">
@@ -6,11 +7,17 @@ const Task = (props) => (
             Title: {props.title}
         </h3>
         <p className="task__details">
-            Go to the supermarket!
+            These are some more Details!!!
         </p>
         <p className="task__status">
             Status: {props.status}
         </p>
+        <button 
+            className="task__button" 
+            onClick={() => props.deleteTask(props.id)}
+        >
+            X
+        </button>
     </div>
 );
 
