@@ -41,6 +41,7 @@ const Tasks = () => {
                 status={thisTask.status}
                 deleteTask={deleteTask}
             />)}
+            {tasksState.length === 0 && <p>No Tasks Found</p>}
         </div>
     )
 }
