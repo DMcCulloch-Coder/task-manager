@@ -20,4 +20,7 @@ router.route('/login')
 router.route('/logout')
     .post(auth, userController.logout)
 
+router.route('/logoutAll')
+    .post(auth, userController.logoutAll)
+
 module.exports = router

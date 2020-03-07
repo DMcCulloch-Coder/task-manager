@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const validator = require('validator');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+require('dotenv').config();
 
 const userSchema = new mongoose.Schema({
     name: {
@@ -41,13 +42,22 @@ const userSchema = new mongoose.Schema({
 });
 
 userSchema.methods.generateAuthToken = async function () {
-    const token = jwt.sign({ _id: this._id.toString() }, 'tempsecreat')
-    
-    this.tokens = this.tokens.concat({ token })
-    await this.save()
+    const token = jwt.sign({ _id: this._id.toString() }, process.env.ENV_secret);
 
-    return token
-}
+    this.tokens = this.tokens.concat({ token });
+    await this.save();
+
+    return token;
+};
+
+userSchema.methods.toJSON = function () {
+    const userObject = this.toObject();
+
+    delete userObject.password
+    delete userObject.tokens
+
+    return userObject;
+};
 
 userSchema.statics.findByCredentials = async (email, password) => {
     const user = await User.findOne({ email })
