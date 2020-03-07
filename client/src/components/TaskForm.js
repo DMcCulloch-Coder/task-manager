@@ -1,9 +1,8 @@
 import React from 'react';
+import API from '../utils/API';
 
 const formSubmit = (e) => {
     e.preventDefault();
-
-
 
     let data = $('#status').val() ? {
         title: $('#title').val(),
@@ -15,11 +14,7 @@ const formSubmit = (e) => {
     $('#title').val('');
     $('#status').val('');
 
-    $.ajax({
-        url: `/api/task`,
-        method: "POST",
-        data
-    }).then((result) => {
+    API.createTask(data).then((result) => {
         console.log(result)
     });
 };
