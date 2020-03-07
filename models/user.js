@@ -31,8 +31,23 @@ const userSchema = new mongoose.Schema({
                 throw new Error('Email must be valid')
             }
         }
-    }
+    },
+    tokens: [{
+        token: {
+            type: String,
+            required: true
+        }
+    }]
 });
+
+userSchema.methods.generateAuthToken = async function () {
+    const token = jwt.sign({ _id: this._id.toString() }, 'tempsecreat')
+    
+    this.tokens = this.tokens.concat({ token })
+    await this.save()
+
+    return token
+}
 
 userSchema.statics.findByCredentials = async (email, password) => {
     const user = await User.findOne({ email })
@@ -52,8 +67,6 @@ userSchema.statics.findByCredentials = async (email, password) => {
 
 // Hash the password when created
 userSchema.pre('save', async function (next) {
-    console.log('working middleware')
-
     if (this.isModified('password')) {
         this.password = await bcrypt.hash(this.password, 8)
     }

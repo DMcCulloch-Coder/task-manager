@@ -6,11 +6,12 @@
     "scripts": {
         "dev-server": "webpack-dev-server",
         "start": "node server.js",
-        "build:dev": "webpack",
+        "build:dev": "webpack --watch",
         "build:prod": "webpack -p --env production",
         "server": "nodemon server.js",
         "heroku-postbuild": "npm run build:prod",
-        "connect:DB": "C:/Users/DMCCU/code/MongoDB/bin/mongod.exe --dbpath=C:/Users/DMCCU/code/MongoDB-data"
+        "connect:DB": "C:/Users/DMCCU/code/MongoDB/bin/mongod.exe --dbpath=C:/Users/DMCCU/code/MongoDB-data",
+        "dev": "concurrently \"npm:build:dev\" \"npm:server\""
     },
     "keywords": [],
     "author": "",
