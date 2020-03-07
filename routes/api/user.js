@@ -8,11 +8,8 @@ router.route('/')
 
 router.route('/profile')
     .get(auth, userController.getProfile)
-
-router.route('/:id')
-    .get(userController.findById)
-    .patch(userController.update)
-    .delete(userController.delete)
+    .delete(auth, userController.delete)
+    .patch(auth, userController.update)
 
 router.route('/login')
     .post(userController.login)
