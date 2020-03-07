@@ -47,5 +47,4 @@ module.exports = (env) => {
             publicPath: path.join(__dirname, 'client/public/build')
         }
     }
-
 }
