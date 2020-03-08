@@ -71,7 +71,11 @@ module.exports = {
 
     delete: async (req, res) => {
         try {
-            const task = await Task.findByIdAndDelete(req.params.id)
+            const task = await Task.findOneAndDelete({
+                _id: req.params.id,
+                author: req.user._id
+            })
+
             if (!task) {
                 return res.status(404).send()
             }

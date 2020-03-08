@@ -9,7 +9,7 @@ router.route('/')
 router.route('/:id')
     .get(auth, taskController.findById)
     .patch(auth, taskController.update)
-    .delete(taskController.delete)
+    .delete(auth, taskController.delete)
 
 module.exports = router
 
