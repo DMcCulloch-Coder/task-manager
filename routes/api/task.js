@@ -1,13 +1,14 @@
 const router = require('express').Router();
 const taskController = require('../../controllers/taskController');
+const auth = require('../../middleware/auth');
 
 router.route('/')
-    .get(taskController.getAll)
-    .post(taskController.create)
+    .get(auth, taskController.getAll)
+    .post(auth, taskController.create)
 
 router.route('/:id')
-    .get(taskController.findById)
-    .patch(taskController.update)
+    .get(auth, taskController.findById)
+    .patch(auth, taskController.update)
     .delete(taskController.delete)
 
 module.exports = router

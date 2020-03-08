@@ -1,7 +1,7 @@
 import React from 'react';
 import API from '../utils/API';
 
-const userFormSubmit = (e) => {
+const formSubmit = (e) => {
     e.preventDefault();
 
     let data = {
@@ -11,7 +11,7 @@ const userFormSubmit = (e) => {
     };
 
     if (!data.name || !data.email || !data.password) {
-        console.log('invalid form')
+        return console.log('invalid form')
     }
 
     $('#name').val('');
@@ -20,14 +20,22 @@ const userFormSubmit = (e) => {
 
     console.log(data)
 
-    API.createUser(data).then((result) => {
+    // API.createUser(data).then((result) => {
+    //     console.log(result)
+    // });
+
+    $.ajax({
+        url: '/api/user',
+        method: 'POST',
+        data
+    }).then((result) => {
         console.log(result)
-    });
+    })
 };
 
-const LoginForm = () => (
+const SignUpForm = () => (
     <form action="submit">
-        <h3 className="submit__title">Login:</h3>
+        <h3 className="submit__title">Sign Up:</h3>
         <label htmlFor="name">Name </label>
         <input type="text" name="name" id="name" />
         <label htmlFor="email">E-mail </label>
@@ -35,11 +43,11 @@ const LoginForm = () => (
         <label htmlFor="password">Password </label>
         <input type="text" name="password" id="password" />
         <button className="button submit__button"
-            onClick={userFormSubmit}
+            onClick={formSubmit}
         >
             Submit
         </button>
     </form>
 );
 
-export default LoginForm;
+export default SignUpForm;
