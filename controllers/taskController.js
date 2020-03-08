@@ -3,15 +3,19 @@ const { Task } = require('../models');
 module.exports = {
     getAll: async (req, res) => {
         try {
-            const tasks = await Task.find({})
-            res.status(201).send(tasks)
+            await req.user.populate('tasks').execPopulate();
+            res.send(req.user.tasks);
         } catch (e) {
             res.status(400).send(e)
         }
     },
 
     create: async (req, res) => {
-        const task = new Task(req.body);
+        const task = new Task({
+            ...req.body,
+            author: req.user._id
+        })
+
         try {
             await task.save()
             res.status(201).send({ task })
@@ -22,7 +26,11 @@ module.exports = {
 
     findById: async (req, res) => {
         try {
-            const task = await Task.findById(req.params.id)
+            const task = await Task.findOne({
+                _id: req.params.id,
+                author: req.user._id
+            })
+
             if (!task) {
                 return res.status(404).send()
             }
@@ -42,13 +50,17 @@ module.exports = {
         }
 
         try {
-            const task = await Task.findById(req.params.id)
-            updates.forEach(update => task[update] = req.body[update])
-            await task.save()
+            const task = await Task.findOne({
+                _id: req.params.id,
+                author: req.user._id
+            })
 
             if (!task) {
                 return res.status(404).send({ "error": "Invalid Task" })
             }
+
+            updates.forEach(update => task[update] = req.body[update])
+            await task.save()
 
             res.send(task)
         } catch (e) {
@@ -59,7 +71,11 @@ module.exports = {
 
     delete: async (req, res) => {
         try {
-            const task = await Task.findByIdAndDelete(req.params.id)
+            const task = await Task.findOneAndDelete({
+                _id: req.params.id,
+                author: req.user._id
+            })
+
             if (!task) {
                 return res.status(404).send()
             }

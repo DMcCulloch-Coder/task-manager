@@ -10,6 +10,11 @@ const taskSchema = new mongoose.Schema({
         type: String,
         required: false,
         default: 'Working on It'
+    },
+    author: {
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        ref: 'User'
     }
 });
 
