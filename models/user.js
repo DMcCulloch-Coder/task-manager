@@ -3,6 +3,7 @@ const validator = require('validator');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
+const Task = require('./task');
 
 const userSchema = new mongoose.Schema({
     name: {
@@ -89,6 +90,14 @@ userSchema.pre('save', async function (next) {
 
     next();
 });
+
+userSchema.pre('remove', async function (next) {
+    await Task.deleteMany({
+        author: this._id
+    })
+
+    next();
+})
 
 const User = mongoose.model('User', userSchema);
 
