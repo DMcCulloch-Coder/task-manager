@@ -13,6 +13,14 @@ const Tasks = () => {
         }
     }
 
+    const getTask = useCallback(id => {
+        API.getTask(id, header).then(
+            result => {
+                console.log(result)
+            }
+        )
+    })
+
     const deleteTask = useCallback(id => {
         API.deleteTask(id, header).then(
             (result) => {
@@ -34,7 +42,6 @@ const Tasks = () => {
                     id: thisTask._id
                 })
             })
-            console.log(tasks)
             setTasksState(tasks)
         });
     }, []);
@@ -47,6 +54,7 @@ const Tasks = () => {
                 id={thisTask.id}
                 title={thisTask.title}
                 status={thisTask.status}
+                getTask={getTask}
                 deleteTask={deleteTask}
             />)}
             {tasksState.length === 0 && <p>No Tasks Found</p>}
