@@ -11,8 +11,14 @@ const Task = (props) => (
         <p className="task__status">
             Status: {props.status}
         </p>
-        <button 
-            className="task__button" 
+        <button
+            className="task__button task__button--edit"
+            onClick={() => props.getTask(props.id)}
+        >
+            edit
+        </button>
+        <button
+            className="task__button task__button--delete"
             onClick={() => props.deleteTask(props.id)}
         >
             X
