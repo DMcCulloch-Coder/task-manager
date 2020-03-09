@@ -5,32 +5,28 @@ const formSubmit = (e) => {
     e.preventDefault();
 
     let data = {
-        name: $('#name').val(),
         password: $('#password').val(),
         email: $('#email').val()
     };
 
-    if (!data.name || !data.email || !data.password) {
+    if (!data.email || !data.password) {
         return console.log('invalid form')
     }
 
-    $('#name').val('');
     $('#password').val('');
     $('#email').val('');
 
     console.log(data)
 
-    API.createUser(data).then((result) => {
+    API.userLogin(data).then((result) => {
         localStorage.setItem("Authorization", `Bearer ${result.data.token}`)
     });
 
 };
 
-const SignUpForm = () => (
+const LoginForm = () => (
     <form action="submit">
-        <h3 className="submit__title">Sign Up:</h3>
-        <label htmlFor="name">Name </label>
-        <input type="text" name="name" id="name" />
+        <h3 className="submit__title">Login:</h3>
         <label htmlFor="email">E-mail </label>
         <input type="text" name="email" id="email" />
         <label htmlFor="password">Password </label>
@@ -43,4 +39,4 @@ const SignUpForm = () => (
     </form>
 );
 
-export default SignUpForm;
+export default LoginForm;

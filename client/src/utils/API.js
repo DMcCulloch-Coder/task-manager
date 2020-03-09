@@ -8,7 +8,7 @@ export default {
     getUser: () => axios.get(`/api/user/profile`),
     logout: () => axios.post(`api/user/logout`),
     logoutAll: () => axios.post(`api/user/logoutAll`),
-    createTask: (data) => axios.post(`/api/task`, data),
+    createTask: (data, header) => axios.post(`/api/task`, data, header),
     updateTask: (id, data) => axios.patch(`/api/task/${id}`, data),
     deleteTask: (id) => axios.delete(`/api/task/${id}`),
     getTask: (id) => axios.get(`/api/task/${id}`),
