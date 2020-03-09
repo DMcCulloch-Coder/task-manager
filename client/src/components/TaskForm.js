@@ -4,6 +4,14 @@ import API from '../utils/API';
 const formSubmit = (e) => {
     e.preventDefault();
 
+    const token = localStorage.getItem('Authorization');
+    
+    const header = {
+        headers: {
+            'Authorization': token
+        }
+    }
+
     let data = $('#status').val() ? {
         title: $('#title').val(),
         status: $('#status').val()
@@ -14,7 +22,7 @@ const formSubmit = (e) => {
     $('#title').val('');
     $('#status').val('');
 
-    API.createTask(data).then((result) => {
+    API.createTask(data, header).then((result) => {
         console.log(result)
     });
 };

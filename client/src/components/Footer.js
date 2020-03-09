@@ -7,6 +7,7 @@ const Footer = () => (
         <NavLink to="/create" activeClassName="is-active" exact={true}>Add Task</NavLink>
         <NavLink to="/profile" activeClassName="is-active" exact={true}>Profile</NavLink>
         <NavLink to="/signup" activeClassName="is-active" exact={true}>Sign Up</NavLink>
+        <NavLink to="/login" activeClassName="is-active" exact={true}>Login</NavLink>
     </div>
 
 )
