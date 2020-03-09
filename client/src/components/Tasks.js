@@ -5,6 +5,14 @@ import API from '../utils/API';
 const Tasks = () => {
     const [tasksState, setTasksState] = useState([])
 
+    const token = localStorage.getItem('Authorization');
+
+    const header = {
+        headers: {
+            'Authorization': token
+        }
+    }
+
     const deleteTask = useCallback(id => {
         API.deleteTask(id).then(
             (result) => {
@@ -18,7 +26,7 @@ const Tasks = () => {
     useEffect(() => {
         const tasks = []
 
-        API.getTasks().then((result) => {
+        API.getTasks(header).then((result) => {
             result.data.forEach(thisTask => {
                 tasks.push({
                     title: thisTask.title,

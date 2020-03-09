@@ -12,5 +12,5 @@ export default {
     updateTask: (id, data) => axios.patch(`/api/task/${id}`, data),
     deleteTask: (id) => axios.delete(`/api/task/${id}`),
     getTask: (id) => axios.get(`/api/task/${id}`),
-    getTasks: () => axios.get(`/api/task`)
+    getTasks: (header) => axios.get(`/api/task`, header)
 }
