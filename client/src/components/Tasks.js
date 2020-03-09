@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { Redirect } from 'react-router-dom';
 import Task from './Task';
 import API from '../utils/API';
 
 const Tasks = () => {
-    const [tasksState, setTasksState] = useState([])
+    const [tasksState, setTasksState] = useState([]);
+    const [idState, setIdState] = useState();
 
     const token = localStorage.getItem('Authorization');
 
@@ -14,11 +16,8 @@ const Tasks = () => {
     }
 
     const getTask = useCallback(id => {
-        API.getTask(id, header).then(
-            result => {
-                console.log(result)
-            }
-        )
+        setIdState(id)
+       
     })
 
     const deleteTask = useCallback(id => {
@@ -45,6 +44,15 @@ const Tasks = () => {
             setTasksState(tasks)
         });
     }, []);
+
+    if (idState) {
+        return <Redirect to={{
+            pathname: "/taskDetails",
+            state: {
+                id: idState
+            }
+        }} />
+    }
 
     return (
         <div className='tasks'>
