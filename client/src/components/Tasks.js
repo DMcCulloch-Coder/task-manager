@@ -14,7 +14,7 @@ const Tasks = () => {
     }
 
     const deleteTask = useCallback(id => {
-        API.deleteTask(id).then(
+        API.deleteTask(id, header).then(
             (result) => {
                 setTasksState((state) => {
                     return state.filter((task) => task.id !== id)
