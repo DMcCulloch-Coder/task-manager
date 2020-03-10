@@ -11,9 +11,9 @@ a {
         color: $primary-color;
     }
 
-}
-
-a.is-active {
-    color: $secondary-color;
+    &.is-active {
+        color: $secondary-color;
+    
+    }
 
 }

@@ -17,7 +17,7 @@ const Tasks = () => {
 
     const getTask = useCallback(id => {
         setIdState(id)
-       
+
     })
 
     const deleteTask = useCallback(id => {

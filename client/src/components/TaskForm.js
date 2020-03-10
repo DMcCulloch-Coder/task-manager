@@ -5,7 +5,7 @@ const formSubmit = (e) => {
     e.preventDefault();
 
     const token = localStorage.getItem('Authorization');
-    
+
     const header = {
         headers: {
             'Authorization': token
@@ -30,9 +30,9 @@ const formSubmit = (e) => {
 const TaskForm = () => (
     <form action="submit">
         <h3 className="submit__title">Create New Task:</h3>
-        <label htmlFor="title">Title</label>
+        <label htmlFor="title">Title: </label>
         <input type="text" name="title" id="title" />
-        <label htmlFor="status">Status</label>
+        <label htmlFor="status">Status: </label>
         <input type="text" name="status" id="status" />
         <button className="button submit__button"
             onClick={formSubmit}
