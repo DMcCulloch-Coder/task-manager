@@ -30,15 +30,21 @@ const formSubmit = (e) => {
 const TaskForm = () => (
     <form action="submit">
         <h3 className="submit__title">Create New Task:</h3>
-        <label htmlFor="title">Title: </label>
-        <input type="text" name="title" id="title" />
-        <label htmlFor="status">Status: </label>
-        <input type="text" name="status" id="status" />
-        <button className="button submit__button"
-            onClick={formSubmit}
-        >
-            Submit
-        </button>
+        <p>
+            <label htmlFor="title">Title: </label>
+            <input type="text" name="title" id="title" />
+        </p>
+        <p>
+            <label htmlFor="status">Status: </label>
+            <input type="text" name="status" id="status" />
+        </p>
+        <p>
+            <button className="button submit__button"
+                onClick={formSubmit}
+            >
+                Submit
+            </button>
+        </p>
     </form>
 );
 
