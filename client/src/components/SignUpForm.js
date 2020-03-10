@@ -29,17 +29,25 @@ const formSubmit = (e) => {
 const SignUpForm = () => (
     <form action="submit">
         <h3 className="submit__title">Sign Up:</h3>
-        <label htmlFor="name">Name </label>
-        <input type="text" name="name" id="name" />
-        <label htmlFor="email">E-mail </label>
-        <input type="text" name="email" id="email" />
-        <label htmlFor="password">Password </label>
-        <input type="text" name="password" id="password" />
-        <button className="button submit__button"
-            onClick={formSubmit}
-        >
-            Submit
-        </button>
+        <p>
+            <label htmlFor="name">Name </label>
+            <input type="text" name="name" id="name" />
+        </p>
+        <p>
+            <label htmlFor="email">E-mail </label>
+            <input type="text" name="email" id="email" />
+        </p>
+        <p>
+            <label htmlFor="password">Password </label>
+            <input type="text" name="password" id="password" />
+        </p>
+        <p>   
+            <button className="button submit__button"
+                onClick={formSubmit}
+            >
+                Submit
+            </button>
+        </p> 
     </form>
 );
 

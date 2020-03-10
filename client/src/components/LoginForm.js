@@ -27,15 +27,21 @@ const formSubmit = (e) => {
 const LoginForm = () => (
     <form action="submit">
         <h3 className="submit__title">Login:</h3>
-        <label htmlFor="email">E-mail </label>
-        <input type="text" name="email" id="email" />
-        <label htmlFor="password">Password </label>
-        <input type="text" name="password" id="password" />
-        <button className="button submit__button"
-            onClick={formSubmit}
-        >
-            Submit
-        </button>
+        <p>
+            <label htmlFor="email">E-mail </label>
+            <input type="text" name="email" id="email" />
+        </p>
+        <p>
+            <label htmlFor="password">Password </label>
+            <input type="text" name="password" id="password" />
+        </p>
+        <p>
+            <button className="button submit__button"
+                onClick={formSubmit}
+            >
+                Submit
+            </button>
+        </p>
     </form>
 );
 

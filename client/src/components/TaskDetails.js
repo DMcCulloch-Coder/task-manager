@@ -46,8 +46,6 @@ const TaskDetails = (props) => {
             title: document.getElementById('title').value,
             status: document.getElementById('status').value
         }
-        console.log(originalTask);
-        console.log(task);
 
         if (originalTask.title !== task.title || originalTask.status !== task.status) {
             API.updateTask(props.id, task, header).then(result => {
