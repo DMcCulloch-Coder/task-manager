@@ -15,10 +15,19 @@ const TaskDetails = (props) => {
         status: ''
     });
 
+    const [originalTask, setOriginalTask] = useState({
+        title: '',
+        status: ''
+    });
+
     useEffect(() => {
 
         API.getTask(props.id, header).then(result => {
             setTaskState({
+                title: result.data.task.title,
+                status: result.data.task.status
+            })
+            setOriginalTask({
                 title: result.data.task.title,
                 status: result.data.task.status
             })
@@ -32,14 +41,15 @@ const TaskDetails = (props) => {
 
     const updateProfile = (e) => {
         e.preventDefault();
-        console.log('working');
+
         const task = {
             title: document.getElementById('title').value,
             status: document.getElementById('status').value
         }
+        console.log(originalTask);
         console.log(task);
 
-        if (taskState !== task) {
+        if (originalTask.title !== task.title || originalTask.status !== task.status) {
             API.updateTask(props.id, task, header).then(result => {
                 console.log(result)
             })
