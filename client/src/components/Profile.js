@@ -98,7 +98,7 @@ const Profile = () => {
     };
 
     return (
-        <div>
+        <div className='profile'>
             <h3>Profile:</h3>
             <p>Name: <input type='text' id='name'></input></p>
             <p>E-mail: <input type='text' id='email'></input></p>

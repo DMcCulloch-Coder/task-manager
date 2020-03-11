@@ -27,7 +27,7 @@ const formSubmit = (e) => {
 };
 
 const SignUpForm = () => (
-    <form action="submit">
+    <form action="submit" className="signup-form">
         <h3 className="submit__title">Sign Up:</h3>
         <p>
             <label htmlFor="name">Name </label>
@@ -41,13 +41,13 @@ const SignUpForm = () => (
             <label htmlFor="password">Password </label>
             <input type="text" name="password" id="password" />
         </p>
-        <p>   
+        <p>
             <button className="button submit__button"
                 onClick={formSubmit}
             >
                 Submit
             </button>
-        </p> 
+        </p>
     </form>
 );
 
