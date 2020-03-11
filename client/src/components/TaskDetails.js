@@ -48,9 +48,7 @@ const TaskDetails = (props) => {
         }
 
         if (originalTask.title !== task.title || originalTask.status !== task.status) {
-            API.updateTask(props.id, task, header).then(result => {
-                console.log(result)
-            })
+            API.updateTask(props.id, task, header).then(result => { })
         } else {
             console.log('not changed')
         }
