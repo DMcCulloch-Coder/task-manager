@@ -10,7 +10,7 @@ const Header = () => {
         headers: {
             'Authorization': token
         }
-    };
+    }
 
     const logout = () => {
 
