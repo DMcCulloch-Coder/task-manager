@@ -1,8 +1,14 @@
 @import './base/settings';
 @import './base/base';
 
-@import './components/buttons';
 @import './components/footer';
 @import './components/header';
+@import './components/loginForm';
+@import './components/profile';
+@import './components/signUpForm';
 @import './components/task';
+@import './components/taskDetails';
+@import './components/taskForm';
 @import './components/tasks';
+
+@import './utils/buttons';
