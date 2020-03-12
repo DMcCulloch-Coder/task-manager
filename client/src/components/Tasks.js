@@ -56,7 +56,7 @@ const Tasks = () => {
 
     return (
         <div className='tasks'>
-            <h2 className='tasks__title'>Tasks</h2>
+            <h2 className='page__title'>Tasks</h2>
             {tasksState.map(thisTask => <Task
                 key={thisTask.id}
                 id={thisTask.id}

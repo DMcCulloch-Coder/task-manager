@@ -99,7 +99,7 @@ const Profile = () => {
 
     return (
         <div className='profile'>
-            <h3>Profile:</h3>
+            <h2 className='page__title'>Profile</h2>
             <p>Name: <input type='text' id='name'></input></p>
             <p>E-mail: <input type='text' id='email'></input></p>
             {passVis ?

@@ -56,7 +56,7 @@ const TaskDetails = (props) => {
 
     return (
         <div className='task-details'>
-            <h3>Update Task:</h3>
+            <h2 className='page__title'>Update Task</h2>
             <p>Title: <input type='text' id='title'></input></p>
             <p>Status: <input type='text' id='status'></input></p>
             <button

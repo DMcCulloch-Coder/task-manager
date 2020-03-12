@@ -26,7 +26,7 @@ const formSubmit = (e) => {
 
 const LoginForm = () => (
     <form action="submit" className="login-form">
-        <h3 className="submit__title">Login:</h3>
+        <h2 className='page__title'>Login</h2>
         <p>
             <label htmlFor="email">E-mail </label>
             <input type="text" name="email" id="email" />

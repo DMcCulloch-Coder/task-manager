@@ -28,7 +28,7 @@ const formSubmit = (e) => {
 
 const SignUpForm = () => (
     <form action="submit" className="signup-form">
-        <h3 className="submit__title">Sign Up:</h3>
+        <h2 className='page__title'>Sign Up</h2>
         <p>
             <label htmlFor="name">Name </label>
             <input type="text" name="name" id="name" />

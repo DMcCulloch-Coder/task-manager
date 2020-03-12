@@ -29,7 +29,7 @@ const formSubmit = (e) => {
 
 const TaskForm = () => (
     <form action="submit" className='task-form'>
-        <h3 className="submit__title">Create New Task:</h3>
+        <h2 className='page__title'>Create New Task</h2>
         <p>
             <label htmlFor="title">Title: </label>
             <input type="text" name="title" id="title" />
