@@ -5,22 +5,27 @@
     &__main {
         max-width: 90rem;
         margin: 0 auto;
-        padding: 1rem;
+        padding: 1rem 1rem 2.5rem 1rem;
+        position: relative;
 
         &--title {
-            margin: 1rem 1.5rem;
+            margin: 2rem 1.5rem;
+
 
         }
 
         &--nav {
-            margin: 0 1.5rem;
+            margin: 2.5rem 1.5rem;
 
         }
 
         &--logout {
+            position: absolute;
+            top: 0;
+            right: 0;
             border-radius: 3px;
             padding: .5rem;
-            margin: 1rem;
+            margin: 3.5rem 1.5rem;
 
         }
 
