@@ -2,4 +2,26 @@
     background-color: darken($primary-color, 80%);
     color: $off-white;
 
+    &__wrapper {
+        max-width: 90rem;
+        margin: 0 auto;
+        padding: 2.5rem 1rem;
+        position: relative;
+
+    }
+
+    &__links {
+        margin: 0 1.5rem;
+
+    };
+
+    &__credits {
+        position: absolute;
+        margin: 0 1.5rem;
+        color: $off-white;
+        top: 2.5rem;
+        right: 0;
+
+    }
+
 }
