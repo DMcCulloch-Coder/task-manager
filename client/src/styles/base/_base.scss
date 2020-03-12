@@ -18,9 +18,15 @@ body {
 
 }
 
+.main {
+    position: relative;
+    min-height: 100vh;
+
+}
+
 .wrapper__main {
     max-width: 90rem;
     margin: 0 auto;
-    padding: 1rem;
+    padding: 1rem 1rem 6.6rem 1rem;
 
 }

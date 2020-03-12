@@ -12,19 +12,21 @@ import Footer from "../components/Footer";
 
 const AppRoutes = () => (
     <Router>
-        <Header />
-        <div className="wrapper__main">
-            <Switch>
-                <Route path="/" component={DashboardPage} exact={true} />
-                <Route path="/create" component={AddTaskPage} exact={true} />
-                <Route path="/profile" component={ProfilePage} exact={true} />
-                <Route path="/signup" component={SignUpPage} exact={true} />
-                <Route path="/login" component={LoginPage} exact={true} />
-                <Route path="/taskDetails" component={TaskDetailsPage} exact={true} />
-                <Route component={NotFoundPage} />
-            </Switch>
+        <div className="main">
+            <Header />
+            <div className="wrapper__main">
+                <Switch>
+                    <Route path="/" component={DashboardPage} exact={true} />
+                    <Route path="/create" component={AddTaskPage} exact={true} />
+                    <Route path="/profile" component={ProfilePage} exact={true} />
+                    <Route path="/signup" component={SignUpPage} exact={true} />
+                    <Route path="/login" component={LoginPage} exact={true} />
+                    <Route path="/taskDetails" component={TaskDetailsPage} exact={true} />
+                    <Route component={NotFoundPage} />
+                </Switch>
+            </div>
+            <Footer />
         </div>
-        <Footer />
     </Router>
 )
 

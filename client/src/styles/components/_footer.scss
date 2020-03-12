@@ -1,6 +1,10 @@
 .footer {
     background-color: darken($primary-color, 80%);
     color: $off-white;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 6.6rem;
 
     &__wrapper {
         max-width: 90rem;
